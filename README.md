@@ -7,3 +7,13 @@ This repository houses my custom in-built SQL Server image. You can find the bas
 For the latest version, I added some convenience such as:
 
 1) Placing the `sqlcmd` and `bcp` into path
+
+## Usage
+
+To fetch the image
+
+```bash
+docker image pull danielbok/sql-server:latest
+```
+
+Remember to set the `SA_PASSWORD` environment variable!
