@@ -25,15 +25,10 @@ def image_tag():
 
 def execute(*commands: str):
     print(' '.join(commands))
-    process = subprocess.Popen(commands, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    process = subprocess.Popen(commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    while True:
-        output = process.stdout.readline().decode('utf-8')
-        if process.poll() is not None:
-            break
-        if output:
-            print(output)
-        time.sleep(0.5)
+    for line in process.stdout:
+        sys.stdout.write(line.decode('utf-8'))
 
 
 if __name__ == "__main__":
